@@ -14,7 +14,8 @@ const App = () => {
 
 
   useEffect(() => {
-    if(genereteToken) {
+    const token = genereteToken()
+    if(token) {
       seetIsLogin(true)
     }
     setLoading(false)
