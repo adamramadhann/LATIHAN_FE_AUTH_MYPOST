@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 
 const Register = () => {
 
-
-
   const authRegister = async (data) => {
     try {
       const result = await axios.post('http://localhost:4444/api/register', data)

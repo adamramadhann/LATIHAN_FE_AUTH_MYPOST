@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import genereteToken from '../../token/GenereteToken'
 import axios from 'axios'
+import { GrUserManager } from 'react-icons/gr'
 
 const Profile = ({onLogOut}) => {
 
@@ -37,8 +38,14 @@ const Profile = ({onLogOut}) => {
     })
 
   return (
-    <div> 
-        <h1>Profile</h1>
+    <div className='flex px-5 mt-2 justify-between'> 
+        <div className='flex items-center gap-1 ' >
+        <GrUserManager className='text-5xl' />
+          <span>
+            <h1 className='font-bold text-xl ' >Adam</h1>
+            <h3 className='-mt-2 text-base ' >EMAIL</h3>
+          </span>
+        </div>
         <button className='text-red-500 text-xl' onClick={handleLogOut} >LogOut</button>
     </div>
   )
