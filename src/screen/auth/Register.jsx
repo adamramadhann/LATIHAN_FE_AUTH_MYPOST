@@ -6,7 +6,7 @@ const Register = () => {
 
   const authRegister = async (data) => {
     try {
-      const result = await axios.post('http://localhost:4444/api/register', data)
+      const result = await axios.post('http://localhost:6666/api/user/register', data)
       console.info(result)
     } catch (error) {
       console.error(error)
@@ -29,7 +29,6 @@ const Register = () => {
     authRegister(dataRegistr)
 
     console.info( dataRegistr )
-
   }
 
   

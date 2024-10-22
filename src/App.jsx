@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Login from './screen/auth/Login'
 import Register from './screen/auth/Register'
-import Home from './screen/homeScreen/Home'
 import Layout from './screen/Layout'
 import genereteToken from './token/GenereteToken'
 import Profile from './screen/profile/Profile'
+import MyPost from './screen/profile/MyPost'
+import Home from './screen/profile/Home'
 
 const App = () => {
   
@@ -44,6 +45,7 @@ const App = () => {
       <Route path='/' element={<Layout/>} >
       <Route index element={<Home/>}/>
       <Route path='profile'  element={<Profile onLogOut={() => seetIsLogin(false)}/>}/>
+      <Route path='post'  element={<MyPost />}/>
       <Route path='*' element={<h1 className='flex justify-center items-center w-screen font-bold text-3xl h-screen' >Page Not Found</h1>}/>
       </Route>
     </Routes>
