@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 const Layout = () => {
   return (
     <div className='w-screen h-auto'>
-        <div className='fixed bottom-0 w-[80%] left-1/2  transform -translate-x-1/2  '  >
+        <div className='fixed bottom-0 w-[80%] bg-blue-500 text-white left-1/2  transform -translate-x-1/2  '  >
             <Navigation/>
         </div>
         <div>
