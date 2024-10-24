@@ -66,7 +66,19 @@ const MyPost = () => {
             </div> 
               ))
             } 
-
+        </div>
+        <div className='w-full bg-white h-full absolute top-0 flex-col flex justify-center items-center'>
+          <h1>Form edit card</h1>
+          <form className='flex items-center flex-col mt-5' >
+              <label className='flex flex-col ' htmlFor="judul">Judul :
+                <input type="text" id='judul' placeholder='Edit judul card' />
+              </label>
+              <label className='flex flex-col my-4 ' htmlFor="body">body :
+                <input type="text" id='body' placeholder='Edit Body card' />
+              </label>
+              <button type='submit' >Submit</button>
+          </form>
+          <button className=' absolute top-4 right-4 ' >X</button>
         </div>
     </main>
   )

@@ -14,13 +14,13 @@ const App = () => {
   const [loading, setLoading] = useState(true)
 
 
-  useEffect(() => {
-    const token = genereteToken()
-    if(token) {
-      seetIsLogin(true)
-    }
-    setLoading(false)
-  }, [])
+    useEffect(() => {
+      const token = genereteToken()
+      if(token) {
+        seetIsLogin(true)
+      }
+      setLoading(false)
+    }, [])
 
   if(loading) {
     return (
