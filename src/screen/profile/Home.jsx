@@ -65,7 +65,7 @@ const Home = () => {
           <h1>Card Postingan</h1>
             {
               data?.map((e) => (
-                <div className='w-full h-auto py-2 px-3 bg-white shadow-md rounded-md my-3 ' >
+                <div key={e.id} className='w-full h-auto py-2 px-3 bg-white shadow-md rounded-md my-3 ' >
                 <h1 className='font-bold' >{e.judul}</h1>
                 <p className='text-sm mt-2' >{e.body}</p>
                 <small className='flex justify-end mt-3' >{e.users.name}</small>
