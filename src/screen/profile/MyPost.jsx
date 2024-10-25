@@ -4,6 +4,7 @@ import GetAllPost from '../../Json/GetAllPost'
 import { useQuery } from '@tanstack/react-query'
 import genereteToken from '../../token/GenereteToken'
 import axios from 'axios'
+import api from '../../axiosInterceptors.js'
 
 const MyPost = () => {
 
@@ -26,9 +27,9 @@ const MyPost = () => {
     }
   }
 
-  const getApiEdit = async (e) => {
+  const getApiEdit = async (id, data) => {
     try {
-      const apiEdit = await axios.put("", e)
+      const apiEdit = await api.put(`http://localhost:4444/api/post/update/${id}`, data)
       console.info(apiEdit)
     } catch (error) {
       console.error(error)
@@ -42,7 +43,7 @@ const MyPost = () => {
     let body = e.target.body.value
 
     const data = { judul, body }
-    getApiEdit(data)
+    getApiEdit(openEdit,data)
 
     console.info(data)
 
@@ -80,12 +81,12 @@ const MyPost = () => {
   <h1>Post Screen</h1>
   <div className='w-full max-h-full px-5 mt-5 py-5 overflow-y-auto'>
     <h1>Card Postingan</h1>
-    <div className='w-full max-h-[650px] overflow-y-auto ' >
+    <div className='w-full max-h-[650px] overflow-y-auto pr-5 ' >
     {
       data?.map((e) => (
-        <div className='w-full h-[130px] pt-4 px-3 bg-slate-100 shadow-md rounded-md my-3 relative'>
+        <div key={e.id} className='w-full h-[130px] pt-4 px-3 bg-slate-100 shadow-md rounded-md my-3 relative'>
           <h1 className='font-bold'>{e.judul}</h1>
-          <p className='text-sm mt-2'>tes</p>
+          <p className='text-sm mt-2'>{e.body}</p>
           <div className='flex justify-between w-full mt-6 items-center'>
             <small className='flex justify-end'>I am</small> 
             <small>12-32-1020</small>
@@ -96,7 +97,7 @@ const MyPost = () => {
           <div className={`absolute top-2 w-[70px] text-xs gap-2 h-[80px] bg-white shadow-md flex flex-col right-2 ${modal === e.id ? 'block' : 'hidden'}`}>
             <button className='absolute right-2 top-1' onClick={() => hadleOpenModal(null)}>X</button>
             <button className='mt-7'>Delete</button>
-            <button className='mt-1' onClick={handleOpenEdit} >Update</button>
+            <button className='mt-1' onClick={() =>handleOpenEdit(e.id)} >Update</button>
           </div>
         </div>
       ))

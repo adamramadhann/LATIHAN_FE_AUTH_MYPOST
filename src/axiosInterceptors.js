@@ -2,7 +2,7 @@ import axios from "axios";
 import genereteToken from "./token/GenereteToken";
 
 const api = axios.create({
-    baseURL : process.env.API_URL_POST
+    baseURL : import.meta.env.API_URL_POST
 })
 
 api.interceptors.request.use(
@@ -17,3 +17,5 @@ api.interceptors.request.use(
         return Promise.reject(error)
     }
 )
+
+export default api
