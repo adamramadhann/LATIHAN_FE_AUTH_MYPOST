@@ -11,13 +11,6 @@ const MyPost = () => {
   const[modal, setModal] = useState(null)
   const[openEdit, setOpenEdit] = useState(false)
  
-  const hadleOpenModal = (id) => {
-    if(modal === id) {
-      setModal(null)
-    } else {
-      setModal(id)
-    }
-  }
 
   const handleOpenEdit = (e) => {
     if(openEdit === e) {
@@ -44,6 +37,7 @@ const MyPost = () => {
 
     const data = { judul, body }
     getApiEdit(openEdit,data)
+    setOpenEdit(null)
 
     console.info(data)
 
@@ -71,6 +65,28 @@ const MyPost = () => {
     }
   })
 
+  const handleDelte = async (id) => {
+    try {
+      const dleteData = await api.delete(`http://localhost:4444/api/post/delete/${id}`)
+      console.info("data berhasil di hapus", dleteData)
+    } catch (error) {
+      console.error(error)
+    }
+  } 
+
+  const delteCXard = async (id) => {
+    if(window.confirm("are you sure deleted this data ??")) {
+      try {
+        await handleDelte(id)
+        console.info("data delte succesfull")
+      } catch (error) {
+        console.info(error)
+      }
+    } else {
+      console.info("you cencel data deletion")
+    }
+  }
+
   
   
 
@@ -95,8 +111,8 @@ const MyPost = () => {
             <FaEllipsisV className='absolute top-2 right-1' />
           </button>
           <div className={`absolute top-2 w-[70px] text-xs gap-2 h-[80px] bg-white shadow-md flex flex-col right-2 ${modal === e.id ? 'block' : 'hidden'}`}>
-            <button className='absolute right-2 top-1' onClick={() => hadleOpenModal(null)}>X</button>
-            <button className='mt-7'>Delete</button>
+            <button className='absolute right-2 top-1' onClick={() => setModal(prev => prev = !prev)}>X</button>
+            <button onClick={() => delteCXard(e.id)} className='mt-7'>Delete</button>
             <button className='mt-1' onClick={() =>handleOpenEdit(e.id)} >Update</button>
           </div>
         </div>
