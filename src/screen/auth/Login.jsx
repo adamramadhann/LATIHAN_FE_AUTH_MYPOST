@@ -49,6 +49,8 @@ console.info(hanldeSubmit)
                 <button className='bg-[#85BE71] text-white px-5 py-2 mt-5 rounded-md ' typeß='submit' >Submit</button>
                 <p className='text-[14px] text-center text-gray-500  mt-3' >Don't Have an Account?? <Link to={'/register'} className='text-black' >Sign Up</Link> Now </p>
             </form>
+        </div>
+        </div>
             <h1 className='mt-20 text-xl font-bold text-gray-700 ' >Or</h1>
             <span className='flex text-4xl gap-5 mt-10 ' >
                 <RiInstagramFill/>
