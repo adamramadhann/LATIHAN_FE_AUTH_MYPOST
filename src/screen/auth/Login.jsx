@@ -49,7 +49,7 @@ console.info(hanldeSubmit)
                 <p className='text-[10px] text-end -mt-4' >Belum punya Akun ? // silahkan <Link to={'/register'} className='text-blue-500' >Register</Link> page </p>
             </form>
         </div>
-    </div>
+        </div>
   )
 }
 
